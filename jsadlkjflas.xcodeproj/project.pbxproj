@@ -15,6 +15,7 @@
 		2672852A1DE1BBAC0040163D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 267285281DE1BBAC0040163D /* LaunchScreen.storyboard */; };
 		267285351DE1BBAC0040163D /* jsadlkjflasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 267285341DE1BBAC0040163D /* jsadlkjflasTests.m */; };
 		267285401DE1BBAC0040163D /* jsadlkjflasUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2672853F1DE1BBAC0040163D /* jsadlkjflasUITests.m */; };
+		26E320BA1DF3127E000B49F1 /* MyOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E320B91DF3127E000B49F1 /* MyOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		2672853B1DE1BBAC0040163D /* jsadlkjflasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jsadlkjflasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2672853F1DE1BBAC0040163D /* jsadlkjflasUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jsadlkjflasUITests.m; sourceTree = "<group>"; };
 		267285411DE1BBAC0040163D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26E320B81DF3127E000B49F1 /* MyOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOperation.h; sourceTree = "<group>"; };
+		26E320B91DF3127E000B49F1 /* MyOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				2672851E1DE1BBAC0040163D /* AppDelegate.m */,
 				267285201DE1BBAC0040163D /* ViewController.h */,
 				267285211DE1BBAC0040163D /* ViewController.m */,
+				26E320B81DF3127E000B49F1 /* MyOperation.h */,
+				26E320B91DF3127E000B49F1 /* MyOperation.m */,
 				267285231DE1BBAC0040163D /* Main.storyboard */,
 				267285261DE1BBAC0040163D /* Assets.xcassets */,
 				267285281DE1BBAC0040163D /* LaunchScreen.storyboard */,
@@ -273,6 +278,7 @@
 				267285221DE1BBAC0040163D /* ViewController.m in Sources */,
 				2672851F1DE1BBAC0040163D /* AppDelegate.m in Sources */,
 				2672851C1DE1BBAC0040163D /* main.m in Sources */,
+				26E320BA1DF3127E000B49F1 /* MyOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +504,7 @@
 				267285461DE1BBAC0040163D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		267285471DE1BBAC0040163D /* Build configuration list for PBXNativeTarget "jsadlkjflasTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +513,7 @@
 				267285491DE1BBAC0040163D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2672854A1DE1BBAC0040163D /* Build configuration list for PBXNativeTarget "jsadlkjflasUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +522,7 @@
 				2672854C1DE1BBAC0040163D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
