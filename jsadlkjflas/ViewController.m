@@ -43,11 +43,42 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 //    [self blockOp]; // 测试NSBlockOperation
-//    MyOperation *op = [[MyOperation alloc]init];
-//    [op start]; // 直接start是主线程
+    MyOperation *op = [[MyOperation alloc]init];
+    [op cancel];
+    [op start]; // 直接start是主线程
 //    [self operationQueue]; // 测试operationQueue
     
-    [self comminuteThrowThread];
+//    [self comminuteThrowThread]; // 线程间通信--------------------->
+//    [self blockThread];
+//    [self depandance]; // 依赖
+}
+
+- (void)depandance {
+    NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"写上面的操作");
+    }];
+    
+    NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"写下面的操作");
+    }];
+    
+//    [op1 addDependency:op2];
+    
+    [[NSOperationQueue mainQueue] addOperation:op1];
+    [[NSOperationQueue mainQueue] addOperation:op2];
+}
+
+- (void)blockThread { // 阻塞线程,直接start并没有阻塞
+    NSLog(@"开始.%@",[NSThread currentThread]);
+//    NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+//    [queue addOperationWithBlock:^{
+//        
+//    }];
+    NSBlockOperation *OP = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"会打印么-%@",[NSThread currentThread]);
+    }];
+    [OP start];
+    NSLog(@"能到这么?");
 }
 
 - (void)blockOp {
@@ -110,9 +141,13 @@
         NSURL *url = [NSURL URLWithString:@"http://www.gdpx.com.cn/files/modimg/2001_big.jpg"]; // url浏览器可以访问,但是客户端显示不出来
         NSData *data = [NSData dataWithContentsOfURL:url];
         NSLog(@"data-->%@",data);
-        if (data) {
-            [self performSelectorOnMainThread:@selector(refreshImage:) withObject:data waitUntilDone:NO];
-        }
+//        if (data) {
+//            [self performSelectorOnMainThread:@selector(refreshImage:) withObject:data waitUntilDone:NO]; // 回到主线程更新UI
+//        }
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            self.imageView.image = [UIImage imageWithData:data]; // 主线程更新UI 第二种方式
+        }];
         
 //        NSURL *url = [NSURL URLWithString:@"http://img.pconline.com.cn/images/photoblog/9/9/8/1/9981681/200910/11/1255259355826.jpg"];
 //        NSData *data = [NSData dataWithContentsOfURL:url];
