@@ -145,6 +145,7 @@
 //            [self performSelectorOnMainThread:@selector(refreshImage:) withObject:data waitUntilDone:NO]; // 回到主线程更新UI
 //        }
         
+        // queue addOpeartion---队列添加操作
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             self.imageView.image = [UIImage imageWithData:data]; // 主线程更新UI 第二种方式
         }];
@@ -171,3 +172,5 @@
 //    2016-12-01 00:27:30.588 jsadlkjflas[12475:1114145] task2--<NSThread: 0x7fde6ac2ec10>{number = 2, name = (null)}
 //    2016-12-01 00:27:30.589 jsadlkjflas[12475:1114561] task3--<NSThread: 0x7fde6ac2ef80>{number = 3, name = (null)}
 // http://www.jianshu.com/p/2de9c776f226
+
+// http://blog.csdn.net/q375537943/article/details/51536555   标哥下载管理器TODO:!!!!!!!  https://github.com/sven713/DownloadManager
